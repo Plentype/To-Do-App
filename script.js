@@ -67,7 +67,7 @@ function addListElement() {
             const calendarIcon = document.createElement('i');
             calendarIcon.classList.add('fa-solid');
             calendarIcon.classList.add('fa-calendar');
-            calendarIcon.classList.add('fa-xl')
+            calendarIcon.classList.add('fa-lg');
 
             const time = document.createElement('h1');
             const dateArray = deadline.split('T');
