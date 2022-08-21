@@ -1,193 +1,216 @@
 * {
-    margin: 0;
-    padding: 0;
-    outline: 0;
-    box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	outline: 0;
+	box-sizing: border-box;
 }
 
 :root {
-    --red: #a7190f;
-    --black: #252627;
-    --white: #fffafa;
-    --grey: #707070;
-    --blue: #02609e;
+	--red: #a7190f;
+	--black: #252627;
+	--white: #fffafa;
+	--grey: #707070;
+	--blue: #02609e;
+}
+
+html {
+	scroll-behavior: smooth;
 }
 
 body {
-    background-color: var(--black);
+	background-color: var(--black);
 }
 
 header {
-    display: flex;
-    background-color: var(--red);
-    justify-content: center;
-    align-items: center;
-    color: var(--white);
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 4vh;
-    letter-spacing: 0.1vw;
-    height: auto;
-    padding: 2vh 0;
-    transition: all 0.3s;
+	display: flex;
+	background-color: var(--red);
+	justify-content: center;
+	align-items: center;
+	color: var(--white);
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS',
+		sans-serif;
+	font-size: 4vh;
+	letter-spacing: 0.1vw;
+	height: auto;
+	padding: 2vh 0;
+	transition: all 0.3s;
 }
 
 #adder {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 8vh;
-    margin-top: 1.5vh;
-    transition: all 0.3s;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 8vh;
+	margin-top: 1.5vh;
+	transition: all 0.3s;
 }
 
 #task-input::placeholder {
-    color: var(--black);
+	color: var(--black);
 }
 
 #task-input:focus::placeholder {
-    color: transparent;
+	color: transparent;
 }
 
 #task-input {
-    border: none;
-    border-radius: 5px 0 0 5px;
-    color: black;
-    background-color: var(--white);
-    height: 5vh;
-    padding: 15px;
-    width: 30vw;
-    font-size: 1.3rem;
-    font-family: Arial, Helvetica, sans-serif;
-    transition: all 0.3s;
+	border: none;
+	border-radius: 5px 0 0 5px;
+	color: black;
+	background-color: var(--white);
+	height: 7vh;
+	padding: 15px;
+	width: 30vw;
+	font-size: 1.3rem;
+	font-family: Arial, Helvetica, sans-serif;
+	transition: all 0.3s;
 }
 
 #date-input {
-    border: none;
-    background-color: var(--white);
-    color: black;
-    margin-left: 2px;
-    height: 5vh;
-    font-size: 1.3rem;
-    font-family: Arial, Helvetica, sans-serif;
-    padding: 15px;
-    width: 20%;
-    transition: all 0.3s;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: none;
+	background-color: var(--white);
+	color: black;
+	margin-left: 2px;
+	height: 7vh;
+	font-size: 1.3rem;
+	font-family: Arial, Helvetica, sans-serif;
+	padding: 15px;
+	width: 20%;
+	transition: all 0.3s;
+}
+
+#date-input::-webkit-calendar-picker-indicator {
+	cursor: pointer;
 }
 
 #submit {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    border: none;
-    color: var(--white);
-    background-color: var(--red);
-    height: 5vh;
-    width: 5vw;
-    padding: 10px;
-    border-radius: 0 5px 5px 0;
-    transition: all 0.3s;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	border: none;
+	color: var(--white);
+	background-color: var(--red);
+	height: 7vh;
+	width: 5vw;
+	padding: 10px;
+	border-radius: 0 5px 5px 0;
+	transition: all 0.3s;
 }
 
 #submit:hover {
-    background-color: #7e130b;
-    color: #c5ccce;
+	background-color: #7e130b;
+	color: #c5ccce;
 }
 
 .todo-list {
-    display: flex;
-    justify-content: space-between;
-    background-color: var(--blue);
-    border: 10px #fffafa solid;
-    align-items: center;
-    width: 70%;
-    margin: auto;
-    margin-top: 2vh;
-    padding: 15px;
-    border-radius: 25px;
-    transition: all 0.3s;
+	display: flex;
+	justify-content: space-between;
+	background-color: var(--blue);
+	border: 10px #fffafa solid;
+	align-items: center;
+	width: 70%;
+	margin: auto;
+	margin-top: 2vh;
+	padding: 15px;
+	border-radius: 25px;
+	transition: all 0.3s;
+	animation: fadeIn 0.3s ease-in-out;
 }
 
 .check-button {
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--red);
-    color: var(--white);
-    border: none;
-    border-radius: 10px;
-    transition: all 0.3s;
-    height: clamp(1rem, 2.5rem, 3rem);
-    width: clamp(1rem, 2.5rem, 3rem);
-    transition: all 0.3s;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: var(--red);
+	color: var(--white);
+	border: none;
+	border-radius: 10px;
+	transition: all 0.3s;
+	height: clamp(1rem, 2.5rem, 3rem);
+	width: clamp(1rem, 2.5rem, 3rem);
+	transition: all 0.3s;
 }
 
 .check-button:hover {
-    background-color: black;
+	background-color: black;
 }
 
 .task-desc {
-    color: var(--white);
-    margin-left: 1vw;
-    font-size: clamp(1rem, 1.8rem, 2rem);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    max-width: 30vw;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+	color: var(--white);
+	margin-left: 1vw;
+	font-size: clamp(1rem, 1.8rem, 2rem);
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	max-width: 30vw;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 @media screen and (max-width: 450px) {
-    .task-desc {
-        max-width: 15vw;
-    }
+	.task-desc {
+		max-width: 15vw;
+	}
 }
 
 .task-container {
-    display: flex;
-    align-items: center;
-
+	display: flex;
+	align-items: center;
 }
 
 .remove-button {
-    cursor: pointer;
-    float: right;
-    background-color: var(--red);
-    color: var(--white);
-    border: none;
-    border-radius: 10px;
-    min-width: 40px;
-    min-height: 40px;
-    transition: all 0.3s;
+	cursor: pointer;
+	float: right;
+	background-color: var(--red);
+	color: var(--white);
+	border: none;
+	border-radius: 10px;
+	min-width: 40px;
+	min-height: 40px;
+	transition: all 0.3s;
 }
 
 .remove-button:hover {
-    background-color: black;
+	background-color: black;
 }
 
 .deadline-display {
-    background-color: var(--white);
-    border-radius: 5px;
-    align-self: flex-end;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: auto;
-    margin-right: 0.8vw;
-    margin-bottom: 1px;
-    padding: 5px;
-    height: 40px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+	background-color: var(--white);
+	border-radius: 5px;
+	align-self: flex-end;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-left: auto;
+	margin-right: 0.8vw;
+	margin-bottom: 1px;
+	padding: 5px;
+	height: 40px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 .deadline-display > h1 {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: clamp(1vw, 1.5rem, 1.5rem);
-    margin-left: 5px;
-    white-space: nowrap;
-    overflow-x: hidden;
-    text-overflow: ellipsis;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	font-size: clamp(1vw, 1.5rem, 1.5rem);
+	margin-left: 5px;
+	white-space: nowrap;
+	overflow-x: hidden;
+	text-overflow: ellipsis;
+}
+
+@keyframes fadeIn {
+	from {
+		margin-top: 10vh;
+		opacity: 0;
+	}
+	to {
+		margin-top: 2vh;
+		opacity: 1;
+	}
 }
