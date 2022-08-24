@@ -1,10 +1,23 @@
-const taskInput = document.getElementById('task-input');
-const dateInput = document.getElementById('date-input');
 window.addEventListener('keypress', (event) => {
 	if (event.key === 'Enter') {
 		event.preventDefault();
 		addListElement();
 	}
+});
+
+window.addEventListener('onbeforeunload', () => {
+	const remainingTasks = document.getElementById('items').childNodes;
+	localStorage.setItem('prev-tasks', JSON.stringify(remainingTasks));
+	remainingTasks.forEach((temp) => {
+		console.log(temp);
+	});
+});
+
+let prevTasks = localStorage.getItem('prev-tasks');
+prevTasks = JSON.parse(prevTasks);
+const currTasks = document.getElementById('items');
+prevTasks.array.forEach((temp) => {
+	currTasks.appendChild(temp);
 });
 
 function addListElement() {
@@ -119,6 +132,6 @@ function addListElement() {
 	// Clear input
 	document.getElementById('task-input').value = '';
 
-	// Scroll to the bottom of the page
-	window.scrollTo(0, document.body.scrollHeight);
+	// // Scroll to the bottom of the page
+	// window.scrollTo(0, document.body.scrollHeight);
 }
