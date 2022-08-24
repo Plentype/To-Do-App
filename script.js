@@ -13,12 +13,27 @@ window.addEventListener('onbeforeunload', () => {
 	});
 });
 
-let prevTasks = localStorage.getItem('prev-tasks');
-prevTasks = JSON.parse(prevTasks);
-const currTasks = document.getElementById('items');
-prevTasks.array.forEach((temp) => {
-	currTasks.appendChild(temp);
-});
+window.onload = () => {
+	let prevTasks = localStorage.getItem('prev-tasks');
+	prevTasks = JSON.parse(prevTasks);
+	const currTasks = document.getElementById('items');
+	prevTasks.forEach((temp) => {
+		currTasks.appendChild(temp);
+	});
+};
+
+const now = new Date();
+const day = now.getDay();
+let month = now.getMonth() + 1;
+if (month < 10) month = '0' + month;
+const year = now.getFullYear();
+let hour = now.getHours();
+if (hour < 10) hour = '0' + hour;
+let mins = now.getMinutes();
+if (mins < 10) mins = '0' + mins;
+
+const currTime = `${year}-${month}-${day}T${hour}:${mins}`;
+document.getElementById('date-input').setAttribute('min', currTime);
 
 function addListElement() {
 	let checkMarkClicks = 0;
