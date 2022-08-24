@@ -23,16 +23,13 @@ window.onload = () => {
 };
 
 const now = new Date();
-const day = now.getDay();
+let day = now.getDate();
+if (day < 10) day = '0' + day;
 let month = now.getMonth() + 1;
 if (month < 10) month = '0' + month;
 const year = now.getFullYear();
-let hour = now.getHours();
-if (hour < 10) hour = '0' + hour;
-let mins = now.getMinutes();
-if (mins < 10) mins = '0' + mins;
 
-const currTime = `${year}-${month}-${day}T${hour}:${mins}`;
+const currTime = `${year}-${month}-${day}T00:00`;
 document.getElementById('date-input').setAttribute('min', currTime);
 
 function addListElement() {
