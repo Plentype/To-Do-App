@@ -44,8 +44,11 @@ function addListElement() {
 	let deadline = document.getElementById('date-input').value;
 
 	const currentTime = new Date();
+	currentTime.setHours(0, 0, 0, 0);
 	if (new Date(deadline) < new Date(currentTime)) {
 		alert('The date is invalid!');
+		console.log(Date.parse(deadline));
+		console.log(currentTime);
 		document.getElementById('date-input').value = '';
 		return;
 	}
