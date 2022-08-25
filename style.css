@@ -8,9 +8,10 @@
 :root {
 	--red: #a7190f;
 	--black: #252627;
+	--rich-black: #010203;
 	--white: #fffafa;
-	--grey: #707070;
-	--blue: #02609e;
+	--grey: #c2c2c2;
+	--blue: #fffafa;
 }
 
 html {
@@ -56,23 +57,25 @@ header {
 #task-input {
 	border: none;
 	border-radius: 5px 0 0 5px;
-	color: black;
+	color: var(--rich-black);
 	background-color: var(--white);
 	height: 7vh;
 	padding: 15px;
-	width: 30vw;
+	width: 40vw;
 	font-size: 1.3rem;
 	font-family: Arial, Helvetica, sans-serif;
 	transition: all 0.3s;
+	white-space: none;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 #date-input {
 	display: flex;
 	align-items: center;
-	justify-content: center;
 	border: none;
 	background-color: var(--white);
-	color: black;
+	color: var(--rich-black);
 	margin-left: 2px;
 	height: 7vh;
 	font-size: 1.3rem;
@@ -80,6 +83,9 @@ header {
 	padding: 15px;
 	width: 20%;
 	transition: all 0.3s;
+	white-space: none;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 #date-input::-webkit-calendar-picker-indicator {
@@ -109,8 +115,8 @@ header {
 .todo-list {
 	display: flex;
 	justify-content: space-between;
-	background-color: var(--blue);
-	border: 10px #fffafa solid;
+	background-color: var(--grey);
+	border: 5px #fffafa solid;
 	align-items: center;
 	width: 70%;
 	margin: auto;
@@ -141,25 +147,22 @@ header {
 }
 
 .task-desc {
-	color: var(--white);
+	position: absolute;
+	color: var(--rich-black);
 	margin-left: 1vw;
 	font-size: clamp(1rem, 1.8rem, 2rem);
 	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-	max-width: 30vw;
+	max-width: 25%;
+	margin-left: 50px;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
 }
 
-@media screen and (max-width: 450px) {
-	.task-desc {
-		max-width: 15vw;
-	}
-}
-
 .task-container {
 	display: flex;
 	align-items: center;
+	position: inherit;
 }
 
 .remove-button {
@@ -178,21 +181,24 @@ header {
 	background-color: black;
 }
 
-.deadline-display {
-	background-color: var(--white);
-	border-radius: 5px;
-	align-self: flex-end;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	margin-left: auto;
-	margin-right: 0.8vw;
-	margin-bottom: 1px;
-	padding: 5px;
-	height: 40px;
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
+@media screen and (min-width: 801px) {
+	.deadline-display {
+		background-color: var(--white);
+		border-radius: 5px;
+		align-self: flex-end;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-left: auto;
+		margin-right: 0.8vw;
+		margin-bottom: 1px;
+		padding: 5px;
+		height: 40px;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		min-width: 225px;
+	}
 }
 
 .deadline-display > h1 {
@@ -212,5 +218,78 @@ header {
 	to {
 		margin-top: 2vh;
 		opacity: 1;
+	}
+}
+
+@media screen and (max-width: 800px) {
+	#adder {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: center;
+		margin: 3vh auto 0 auto;
+		width: 80%;
+	}
+
+	#task-input {
+		display: flex;
+		border-radius: 0;
+		margin-bottom: 2px;
+		font-size: 1.3rem;
+		width: 100%;
+		padding: 30px 15px;
+	}
+
+	#date-input {
+		display: block;
+		border-radius: 0 0 5px 5px;
+		margin-left: 0;
+		padding: 30px 15px;
+		width: 100%;
+	}
+
+	#submit {
+		display: block;
+		border-radius: 5px 5px 0 0;
+		width: 100%;
+		order: -2;
+		padding: 15px 0;
+	}
+
+	#items {
+		margin-top: 15vh;
+	}
+
+	.todo-list {
+		flex-direction: column;
+		align-items: stretch;
+		width: 80%;
+	}
+
+	.task-desc {
+		max-width: 40%;
+	}
+
+	.deadline-display {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background-color: var(--white);
+		border-radius: 5px;
+		padding: 5px;
+		height: 40px;
+		margin: 1vh 0 0;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	.remove-button {
+		margin-top: 1vh;
+	}
+
+	.task-container {
+		display: flex;
+		justify-content: space-between;
 	}
 }

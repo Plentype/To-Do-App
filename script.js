@@ -43,6 +43,13 @@ function addListElement() {
 	const todos = document.getElementById('items');
 	let deadline = document.getElementById('date-input').value;
 
+	const currentTime = new Date();
+	if (new Date(deadline) < new Date(currentTime)) {
+		alert('The date is invalid!');
+		document.getElementById('date-input').value = '';
+		return;
+	}
+
 	const li = document.createElement('li');
 	li.classList.add('todo-list');
 
@@ -141,8 +148,11 @@ function addListElement() {
 	// Add li to ul
 	document.getElementById('items').appendChild(li);
 
-	// Clear input
+	// Clear task input
 	document.getElementById('task-input').value = '';
+
+	// Clear date input
+	document.getElementById('date-input').value = '';
 
 	// // Scroll to the bottom of the page
 	// window.scrollTo(0, document.body.scrollHeight);
